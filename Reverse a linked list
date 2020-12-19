@@ -1,0 +1,16 @@
+Node* reverseList(Node *head){
+    if(head==NULL || head->next==NULL) return head;
+    
+    Node *cur,*prev,*nex;
+    cur=head;
+    prev=NULL;
+    
+    while(cur!=NULL){
+        nex=cur->next;
+        cur->next=prev;
+        prev=cur;
+        cur=nex;
+    }
+    
+    return prev;
+}
