@@ -14,3 +14,7 @@ Node* reverseList(Node *head){
     
     return prev;
 }
+
+or
+Nice Trick. But We Can Code Without data manipulation.
+Reverse LL and check if new head is same as original head or not. In Looped LL new head is equal to original head. :)
