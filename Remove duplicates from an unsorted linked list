@@ -1,0 +1,19 @@
+Node * removeDuplicates( Node *head){
+    Node *a=head,*prev=head;
+    unordered_map<int,int>s;
+    
+    while(a!=NULL){
+        auto it=s.find(a->data);
+        if(it!=s.end()){
+            prev->next=a->next;
+        }
+        
+        else{
+            s[a->data]=1;
+            prev=a;
+        }
+        
+        a=a->next;
+    }
+    return head;
+}
