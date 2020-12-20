@@ -9,8 +9,6 @@ void splitList(Node *head, Node **head1_ref, Node **head2_ref){
     *head1_ref = head;
     *head2_ref = slow->next;
     
-    Node *temp = slow->next;
-    
     slow->next = head;
     
     Node *curr = *head2_ref;
