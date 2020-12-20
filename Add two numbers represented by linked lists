@@ -1,0 +1,44 @@
+Node* reverselist(Node* n){
+    Node* prev = NULL;
+    Node* next;
+    Node* current = n;
+    while(current != NULL){
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+    return prev;
+}
+
+Node* addTwoLists(Node* first, Node* second){
+    first=reverselist(first);
+    second=reverselist(second);
+    
+    
+    Node* head = new Node(0);
+    Node* temp = head;
+    int carry=0;
+    
+    while(first!=NULL || second!=NULL || carry){
+        int sum=0;
+        if(first!=NULL){
+            sum+=first->data;
+            first=first->next;
+        }
+        
+        if(second!=NULL){
+            sum+=second->data;
+            second=second->next;
+        }
+        
+        sum+=carry;
+        carry=sum/10;
+        Node *np=new Node(sum%10);
+        temp->next=np;
+        temp=temp->next;
+    }
+    head=reverselist(head->next);
+    
+    return head;
+}
