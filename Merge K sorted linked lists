@@ -1,0 +1,36 @@
+Node * Merge(Node * a, Node * b){
+    if(a==NULL)
+        return (b);
+    if(b==NULL)
+        return (a);
+    
+    Node * result=NULL;
+    
+    if(a->data<=b->data){
+        result= a;
+        result->next= Merge(a->next, b);
+    }
+    else{
+        result= b;
+        result->next= Merge(a, b->next);
+    }
+    return result;
+}
+
+Node * mergeKLists(Node *arr[], int N){
+    int k=N-1;
+       while(k!=0){
+           int i=0, j=k;
+           
+           while(i<j){
+               arr[i]=Merge(arr[i], arr[j]);
+               i++;
+               j--;
+               
+               if(i>=j)
+               k=j;
+           }
+       }
+       return arr[0];
+}
+
